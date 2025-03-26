@@ -1,0 +1,417 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --color-primario: #4361ee;
+    --color-secundario: #3a0ca3;
+    --color-texto: #f8f9fa;
+    --color-fondo: #212529;
+    --color-fondo-claro: #343a40;
+    --color-bordes: #495057;
+    --color-carga: #4cc9f0;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radio-borde: 12px;
+    --transicion: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    background: url(img/village-8663792_1280.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: var(--color-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(0,0,0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+.contenedor-principal {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.reproductor-musica {
+    background-color: var(--color-fondo-claro);
+    border-radius: var(--radio-borde);
+    padding: 25px;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.info-cancion {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.portada {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radio-borde);
+    object-fit: cover;
+    border: 3px solid var(--color-primario);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: var(--transicion);
+}
+
+.portada:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.texto-info {
+    flex: 1;
+}
+
+#titulo-cancion {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+#artista-cancion {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.controles-tiempo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+#progreso {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--color-bordes);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+#progreso::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--color-primario);
+    border-radius: 50%;
+    border: 2px solid var(--color-texto);
+}
+
+#progreso:hover {
+    height: 8px;
+}
+
+.controles-principales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.control {
+    background: none;
+    border: none;
+    color: var(--color-texto);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: var(--transicion);
+}
+
+.control:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.control.principal {
+    background-color: var(--color-primario);
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+}
+
+.control.principal:hover {
+    background-color: var(--color-secundario);
+    transform: scale(1.05);
+}
+
+.controles-volumen {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+#volumen {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--color-bordes);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+#volumen::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--color-primario);
+    border-radius: 50%;
+    border: 2px solid var(--color-texto);
+}
+
+.controles-mover {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control.mover {
+    background-color: var(--color-secundario);
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    width: auto;
+    height: auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control.mover:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
+/* Estilos para los controles de carga */
+.controles-carga {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.control.cargar {
+    background-color: var(--color-carga);
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    color: #14213d;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transicion);
+    flex: 1;
+}
+
+.control.cargar:hover {
+    background-color: #3a86ff;
+    color: white;
+}
+
+.select-posicion {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 2px solid var(--color-primario);
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transicion);
+    flex: 1;
+    max-width: 180px;
+}
+
+.select-posicion:hover {
+    border-color: var(--color-secundario);
+}
+
+.control.activo {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+.lista-canciones {
+    background-color: var(--color-fondo-claro);
+    border-radius: var(--radio-borde);
+    padding: 20px;
+    box-shadow: var(--sombra);
+    width: 350px;
+    max-height: 600px;
+    overflow-y: auto;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.lista-canciones h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-bordes);
+}
+
+.canciones {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cancion {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transicion);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cancion:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cancion.activa {
+    background-color: var(--color-primario);
+}
+
+.portada-cancion {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-cancion {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.titulo-cancion {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.artista-cancion {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: var(--transicion);
+    font-size: 1rem;
+}
+
+.btn-eliminar:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+    transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+    .contenedor-principal {
+        flex-direction: column;
+    }
+    
+    .lista-canciones {
+        width: 100%;
+        max-height: 300px;
+    }
+    
+    .reproductor-musica {
+        width: 100%;
+    }
+    
+    .controles-carga {
+        flex-direction: column;
+    }
+    
+    .select-posicion {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-cancion {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .portada {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .controles-mover {
+        flex-direction: column;
+    }
+    
+    .controles-principales {
+        gap: 10px;
+    }
+    
+    .control.principal {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}

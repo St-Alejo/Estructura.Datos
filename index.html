@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor Musical Avanzado</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <section class="reproductor-musica">
+            <div class="info-cancion">
+                <img id="portada-cancion" src="img/village-8663792_1280.jpg" alt="Portada de la canción" class="portada">
+                <div class="texto-info">
+                    <h1 id="titulo-cancion">Sin canción</h1>
+                    <p id="artista-cancion">Selecciona una canción</p>
+                </div>
+            </div>
+            
+            <audio id="audio-player"></audio>
+            
+            <div class="controles-tiempo">
+                <span id="tiempo-actual">0:00</span>
+                <input type="range" id="progreso" value="0" min="0" max="100" aria-label="Barra de progreso de la canción">
+                <span id="tiempo-total">0:00</span>
+            </div>
+
+            <div class="controles-volumen">
+                <i class="bi bi-volume-down" aria-hidden="true"></i>
+                <input type="range" id="volumen" value="100" min="0" max="100" aria-label="Control de volumen">
+                <i class="bi bi-volume-up" aria-hidden="true"></i>
+            </div>
+            
+            <div class="controles-principales">
+                <button id="btn-aleatorio" class="control" title="Modo aleatorio" aria-label="Activar modo aleatorio">
+                    <i id="icono-aleatorio" class="bi bi-shuffle"></i>
+                </button>
+                <button id="btn-anterior" class="control" title="Anterior" aria-label="Canción anterior">
+                    <i class="bi bi-rewind-fill"></i>
+                </button>
+                <button id="btn-play-pause" class="control principal" title="Reproducir/Pausar" aria-label="Reproducir o pausar">
+                    <i id="icono-play-pause" class="bi bi-play-fill"></i>
+                </button>
+                <button id="btn-siguiente" class="control" title="Siguiente" aria-label="Siguiente canción">
+                    <i class="bi bi-fast-forward-fill"></i>
+                </button>
+                <button id="btn-repetir" class="control" title="Modo repetir" aria-label="Activar modo repetir">
+                    <i id="icono-repetir" class="bi bi-arrow-repeat"></i>
+                </button>
+            </div>
+
+            <div class="controles-mover">
+                <button id="btn-mover-inicio" class="control mover" title="Mover al inicio" aria-label="Mover canción actual al inicio">
+                    <i class="bi bi-arrow-bar-up"></i> Mover al inicio
+                </button>
+                <button id="btn-mover-final" class="control mover" title="Mover al final" aria-label="Mover canción actual al final">
+                    <i class="bi bi-arrow-bar-down"></i> Mover al final
+                </button>
+            </div>
+
+            <div class="controles-carga">
+                <input type="file" id="file-input" accept=".mp3" multiple style="display: none;">
+                <button id="btn-cargar-canciones" class="control cargar">
+                    <i class="bi bi-folder-plus"></i> Cargar Canciones
+                </button>
+                <select id="posicion-agregar" class="select-posicion">
+                    <option value="start">Al inicio</option>
+                    <option value="end">Al final</option>
+                    <option value="after-current">Después de la actual</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="lista-canciones" aria-labelledby="playlist-heading">
+            <h2 id="playlist-heading">Lista de Reproducción</h2>
+            <ul id="lista-canciones" class="canciones" aria-label="Canciones en la lista de reproducción">
+                <!-- Las canciones se agregarán dinámicamente aquí -->
+            </ul>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
