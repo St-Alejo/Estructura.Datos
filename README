@@ -1,2 +1,6 @@
 PROGRAMA REALIZADO POR: Steven Alejandro Ortega
 TECNOLOGIAS UTILIZADAS: HTML, CSS, TYPESCRIPT 
+para que se ejecute con normalidad ponemos en la terminal 
+ tsc --watch 
+y se puede agregar canciones desde las carpetas propias 
+asi como hay ejemplos de canciones que no funcionan y son para eliminar 
