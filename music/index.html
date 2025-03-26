@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Player | Reproductor Moderno</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="music-app">
+        <!-- Sidebar Simplificado -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="bi bi-music-note-beamed"></i>
+                <span>Harmony</span>
+            </div>
+            
+            <nav class="menu">
+                <a href="#" class="menu-item active">
+                    <i class="bi bi-house"></i>
+                    <span>Inicio</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <div class="player-container">
+                <!-- Reproductor Actual -->
+                <div class="now-playing">
+                    <div class="album-art">
+                        <img id="portada-cancion" src="img/default-cover.jpg" alt="Portada del álbum">
+                        <div class="vinyl"></div>
+                    </div>
+                    
+                    <div class="song-info">
+                        <h1 id="titulo-cancion">Selecciona una canción</h1>
+                        <p id="artista-cancion">Artista</p>
+                        
+                        <div class="progress-container">
+                            <span id="tiempo-actual">0:00</span>
+                            <input type="range" id="progreso" value="0" min="0" max="100">
+                            <span id="tiempo-total">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controles del reproductor -->
+                <div class="player-controls">
+                    <div class="main-controls">
+                        <button id="btn-aleatorio" class="control-btn" title="Aleatorio">
+                            <i id="icono-aleatorio" class="bi bi-shuffle"></i>
+                        </button>
+                        <button id="btn-anterior" class="control-btn" title="Anterior">
+                            <i class="bi bi-skip-start-fill"></i>
+                        </button>
+                        <button id="btn-play-pause" class="control-btn play-btn" title="Reproducir">
+                            <i id="icono-play-pause" class="bi bi-play-fill"></i>
+                        </button>
+                        <button id="btn-siguiente" class="control-btn" title="Siguiente">
+                            <i class="bi bi-skip-end-fill"></i>
+                        </button>
+                        <button id="btn-repetir" class="control-btn" title="Repetir">
+                            <i id="icono-repetir" class="bi bi-repeat"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="secondary-controls">
+                        <div class="volume-control">
+                            <i class="bi bi-volume-down"></i>
+                            <input type="range" id="volumen" value="80" min="0" max="100">
+                            <i class="bi bi-volume-up"></i>
+                        </div>
+                        
+                        <div class="song-actions">
+                            <button id="btn-mover-inicio" class="action-btn">
+                                <i class="bi bi-arrow-up-circle"></i>
+                                <span>Inicio</span>
+                            </button>
+                            <button id="btn-mover-final" class="action-btn">
+                                <i class="bi bi-arrow-down-circle"></i>
+                                <span>Final</span>
+                            </button>
+                            <button id="btn-cargar-canciones" class="action-btn primary">
+                                <i class="bi bi-plus-circle"></i>
+                                <span>Agregar</span>
+                            </button>
+                            <input type="file" id="file-input" accept=".mp3" multiple style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lista de reproducción -->
+            <div class="playlist-section">
+                <div class="playlist-header">
+                    <h2><i class="bi bi-music-note-list"></i> Lista de Reproducción</h2>
+                    <input type="number" id="posicion-agregar" min="1" value="1" class="add-position" placeholder="Posición">
+                </div>
+                
+                <div class="playlist-container">
+                    <ul id="lista-canciones" class="song-list">
+                        <!-- Las canciones se agregarán dinámicamente aquí -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

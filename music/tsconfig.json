@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "AMD",  // Cambiado de ES6 a AMD
+      "strict": true,
+      "outFile": "./app.js",
+      "rootDir": "./",
+      "esModuleInterop": true
+    },
+    "include": ["*.ts"],
+    "exclude": ["node_modules"]
+  }
