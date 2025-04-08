@@ -6,6 +6,7 @@ Este proyecto implementa un **reloj digital y analógico** como parte de una pr�
 
 - Visualización de hora actual (analógica y digital)
 - Manejo de zonas horarias
+- ealizado con python
 - Interfaz gráfica con `Tkinter`
 - Representación del tiempo mediante listas doblemente enlazadas circulares
 - Realizado por: Steven alejandro Ortega
