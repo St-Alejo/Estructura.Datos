@@ -8,5 +8,4 @@ Este proyecto implementa un **reloj digital y analógico** como parte de una pr�
 - Manejo de zonas horarias
 - Interfaz gráfica con `Tkinter`
 - Representación del tiempo mediante listas doblemente enlazadas circulares
-- Componentes adicionales: cronómetro y temporizador (en desarrollo)
 - Realizado por: Steven alejandro Ortega
